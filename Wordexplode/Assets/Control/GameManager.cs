@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject lives;
 	public GameObject play;
 	public GameObject gameover;
+
 	// Use this for initialization
 	void Start () {
 		lives = GameObject.Find("LivesText");
@@ -14,10 +15,12 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (int.Parse (lives.GetComponent<Text> ().text) == 0) {
-			gamecontrol.SetActive(false);
-			play.SetActive(true);
-			gameover.SetActive(true);
+		if (gameover.activeSelf == false) {
+			if (int.Parse (lives.GetComponent<Text> ().text) == 0) {
+				gamecontrol.SetActive (false);
+				play.SetActive (true);
+				gameover.SetActive (true);
+			}
 		}
 	}
 

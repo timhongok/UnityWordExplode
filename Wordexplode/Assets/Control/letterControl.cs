@@ -27,6 +27,7 @@ public class letterControl : MonoBehaviour {
 			Destroy(this.gameObject,1.0f);
 			ascii.SetActive(false);
 			scoretext.GetComponent<Text>().text = (int.Parse(scoretext.GetComponent<Text>().text) + (int)(speed * 10)).ToString();
+			this.gameObject.GetComponent<BoxCollider>().enabled = false;
 		}
 
 		transform.position = Vector3.MoveTowards (transform.position, camera.transform.position + offset, speed);
