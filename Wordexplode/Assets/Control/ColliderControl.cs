@@ -10,10 +10,12 @@ public class ColliderControl : MonoBehaviour {
 	public float shake = 0;
 	public float shakeAmount = 0.7f;
 	public float decreaseFactor = 1.0f;
+	public GameObject scoretext;
 
 	// Use this for initialization
 	void Start () {
 		Life = GameObject.Find("LivesText");
+		scoretext = GameObject.Find("ScoreText");
 	}
 	
 	// Update is called once per frame
@@ -37,5 +39,10 @@ public class ColliderControl : MonoBehaviour {
 			if(lives <= 0)
 				lives = 0;
 		}
+	}
+
+	public void reset(){
+		lives = 20;
+		scoretext.GetComponent<Text>().text = "0";
 	}
 }

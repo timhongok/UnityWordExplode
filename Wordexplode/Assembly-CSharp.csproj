@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Control\ColliderControl.cs" />
+     <Compile Include="Assets\Control\GameManager.cs" />
      <Compile Include="Assets\Control\cloneControl.cs" />
      <Compile Include="Assets\Control\letterControl.cs" />
      <None Include="Assets\iMG Explosion FX\ReadME.txt" />
