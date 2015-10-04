@@ -9,6 +9,7 @@ public class letterControl : MonoBehaviour {
 	public float speed;
 	public GameObject ascii;
 	public GameObject scoretext;
+	public GameObject KeyPad;
 	string name;
 	Vector3 offset;
 	// Use this for initialization
@@ -18,11 +19,12 @@ public class letterControl : MonoBehaviour {
 		speed = Random.Range (0.1f, 1.0f);
 		offset = new Vector3 (Random.Range (-10, 10), Random.Range (-10, 10), Random.Range (-1, 1));
 		scoretext = GameObject.Find("ScoreText");
+		KeyPad = GameObject.FindGameObjectWithTag("KeyPad");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown(name)) {
+		if (Input.GetButtonDown(name) ) {
 			particle.SetActive(true);
 			Destroy(this.gameObject,1.0f);
 			ascii.SetActive(false);
@@ -30,6 +32,15 @@ public class letterControl : MonoBehaviour {
 			this.gameObject.GetComponent<BoxCollider>().enabled = false;
 		}
 
+		if (KeyPad.GetComponent<KeyCreater> ().key_flag) {
+			if(KeyPad.GetComponent<KeyCreater> ().outkey == name ){
+				particle.SetActive(true);
+				Destroy(this.gameObject,1.0f);
+				ascii.SetActive(false);
+				scoretext.GetComponent<Text>().text = (int.Parse(scoretext.GetComponent<Text>().text) + (int)(speed * 10)).ToString();
+				this.gameObject.GetComponent<BoxCollider>().enabled = false;
+			}
+		}
 		transform.position = Vector3.MoveTowards (transform.position, camera.transform.position + offset, speed);
 		if ((transform.position.z - camera.transform.position.z) <= 5) {
 			particle.SetActive(true);
