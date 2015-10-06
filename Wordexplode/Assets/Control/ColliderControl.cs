@@ -12,10 +12,13 @@ public class ColliderControl : MonoBehaviour {
 	public float decreaseFactor = 1.0f;
 	public GameObject scoretext;
 
+	AudioSource audio;
+
 	// Use this for initialization
 	void Start () {
 		Life = GameObject.Find("LivesText");
 		scoretext = GameObject.Find("ScoreText");
+		audio = GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -36,6 +39,7 @@ public class ColliderControl : MonoBehaviour {
 			count++;
 			lives--;
 			shake = 0.5f;
+			audio.Play();
 			if(lives <= 0)
 				lives = 0;
 		}

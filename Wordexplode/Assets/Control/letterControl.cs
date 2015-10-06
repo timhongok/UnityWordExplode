@@ -10,6 +10,7 @@ public class letterControl : MonoBehaviour {
 	public GameObject ascii;
 	public GameObject scoretext;
 	public GameObject KeyPad;
+	AudioSource audio;
 	string name;
 	Vector3 offset;
 	// Use this for initialization
@@ -20,12 +21,14 @@ public class letterControl : MonoBehaviour {
 		offset = new Vector3 (Random.Range (-10, 10), Random.Range (-10, 10), Random.Range (-1, 1));
 		scoretext = GameObject.Find("ScoreText");
 		KeyPad = GameObject.FindGameObjectWithTag("KeyPad");
+		audio = GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetButtonDown(name) ) {
 			particle.SetActive(true);
+			audio.Play();
 			Destroy(this.gameObject,1.0f);
 			ascii.SetActive(false);
 			scoretext.GetComponent<Text>().text = (int.Parse(scoretext.GetComponent<Text>().text) + (int)(speed * 10)).ToString();
@@ -35,6 +38,7 @@ public class letterControl : MonoBehaviour {
 		if (KeyPad.GetComponent<KeyCreater> ().key_flag) {
 			if(KeyPad.GetComponent<KeyCreater> ().outkey == name ){
 				particle.SetActive(true);
+				audio.Play();
 				Destroy(this.gameObject,1.0f);
 				ascii.SetActive(false);
 				scoretext.GetComponent<Text>().text = (int.Parse(scoretext.GetComponent<Text>().text) + (int)(speed * 10)).ToString();
