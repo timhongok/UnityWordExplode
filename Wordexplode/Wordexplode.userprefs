@@ -1,10 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Control\KeyCreater.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="D:\Unity Work\AlphabetBomber\AlphabetBomber\AlphabetBomber\Assets\Scripts\AController.js">
     <Files>
-      <File FileName="Assets\Control\KeyCreater.cs" Line="101" Column="22" />
-      <File FileName="Assets\Control\cloneControl.cs" Line="1" Column="1" />
-      <File FileName="Assets\Control\letterControl.cs" Line="35" Column="1" />
+      <File FileName="D:\Unity Work\AlphabetBomber\AlphabetBomber\AlphabetBomber\Assets\Scripts\AController.js" Line="22" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
